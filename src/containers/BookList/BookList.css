@@ -1,3 +1,7 @@
+.container {
+  width: 40%;
+}
+
 .Book {
   display: flex;
   flex-flow: row wrap;

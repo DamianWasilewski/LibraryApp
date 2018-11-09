@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Book from '../../components/Book/Book';
+import BookList from '../BookList/BookList';
 
 import './AppContainer.css';
 import axios from 'axios';
@@ -22,13 +22,10 @@ class AppContainer extends Component {
   }
 
   render () {
-    const books = this.state.books.map(book => {
-      return <Book key={book.book_id} name={book.name} author={book.author} isbn={book.isbn} />
-    });
 
     return (
       <div className='container'>
-        {books}
+        <BookList books={this.state.books}/>
       </div>
     )
   }
