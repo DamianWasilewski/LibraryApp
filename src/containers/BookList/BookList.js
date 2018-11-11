@@ -44,9 +44,9 @@ class BookList extends Component {
             })
           } else if (this.state.selectedValue === 'isbn') {
             filteredBooks = this.props.books.filter(book => {
-              return book.isbn.indexOf(this.state.search) !== -1;
+              return book.isbn.toString().indexOf(this.state.search) !== -1;
             })
-          }
+          };
 
     return (
       <div>
