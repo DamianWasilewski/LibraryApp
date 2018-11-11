@@ -6,17 +6,36 @@ import './BookList.css';
 class BookList extends Component {
 
   state = {
-    search: ''
+    search: '',
+    selectedValue: 'name',
+    options: [
+      {
+        name: 'Name',
+        value: 'name',
+      },
+      {
+        name: 'Author',
+        value: 'author',
+      },
+      {
+        name: 'ISBN',
+        value: 'isbn',
+      }
+    ]
   }
 
   updateSearch (e) {
     this.setState({search: e.target.value});
   }
 
+  selectedValueHandler (e) {
+    this.setState({selectedValue: e.target.value});
+  }
+
   render () {
-    let filteredBooks = this.props.books.filter(book => {
-      return book.name.toLowerCase().indexOf(this.state.search) !== -1;
-    });
+        let filteredBooks = this.props.books.filter(book => {
+          return book.name.toLowerCase().indexOf(this.state.search) !== -1;
+        });
 
     return (
       <div>
@@ -24,6 +43,16 @@ class BookList extends Component {
           <input type='text'
           value={this.state.search}
           onChange={this.updateSearch.bind(this)} />
+          <select
+            id="searchSelect"
+            name="searchSelect"
+            onChange={this.selectedValueHandler.bind(this)} >
+            {this.state.options.map(item => (
+              <option key={item.value} value={item.value}>
+                {item.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='BookList'>
           <ul>
