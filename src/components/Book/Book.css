@@ -6,7 +6,7 @@
 
 .Book > div {
   text-align: center;
-  flex-basis: 30%;
+  flex-basis: 29%;
 }
 
 .Book :first-child {
