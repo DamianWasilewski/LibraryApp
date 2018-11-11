@@ -33,9 +33,20 @@ class BookList extends Component {
   }
 
   render () {
-        let filteredBooks = this.props.books.filter(book => {
-          return book.name.toLowerCase().indexOf(this.state.search) !== -1;
-        });
+    let filteredBooks;
+          if (this.state.selectedValue === 'name') {
+            filteredBooks = this.props.books.filter(book => {
+              return book.name.toLowerCase().indexOf(this.state.search) !== -1;
+            })
+          } else if (this.state.selectedValue === 'author') {
+            filteredBooks = this.props.books.filter(book => {
+              return book.author.toLowerCase().indexOf(this.state.search) !== -1;
+            })
+          } else if (this.state.selectedValue === 'isbn') {
+            filteredBooks = this.props.books.filter(book => {
+              return book.isbn.indexOf(this.state.search) !== -1;
+            })
+          }
 
     return (
       <div>
