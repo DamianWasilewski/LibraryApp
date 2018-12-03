@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
 import BookList from '../BookList/BookList';
 
+import { Provider } from 'react-redux';
+import store from '../../store';
+import { connect } from 'react-redux';
+import { getBooks } from '../../actions/bookActions';
+import PropTypes from 'prop-types';
+
 import './AppContainer.css';
-import axios from 'axios';
 
 class AppContainer extends Component {
 
-  state = {
-    books: []
-  }
 
   componentDidMount() {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    axios.get(proxyUrl + 'https://damianlibrary.herokuapp.com/library')
-      .then( response => {
-        this.setState({ books: response.data.data });
-      })
-      .catch(error => {
-        throw error;
-      });
+    this.props.getBooks();
   }
 
   render () {
-
+    const { books } = this.props.book;
     return (
-      <div className='container'>
-        <BookList books={this.state.books}/>
-      </div>
+      <Provider store = {store}>
+        <div className='container'>
+          <BookList books={books}/>
+        </div>
+      </Provider>
     )
   }
-
 }
 
-export default AppContainer;
+AppContainer.propTypes = {
+  getBooks: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
+}
+
+const mapStatetoProps = (state) => ({
+  book: state.book
+});
+
+export default connect(mapStatetoProps, { getBooks })(AppContainer);
