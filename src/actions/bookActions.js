@@ -9,3 +9,11 @@ export const getBooks = () => dispatch => {
     payload: res.data
   }))
 };
+
+export const deleteBook = id => dispatch => {
+  axios.delete(`https://damianlibrary.herokuapp.com/library/${id}`)
+    .then(res => dispatch({
+      type: DELETE_BOOK,
+      payload: id
+    }))
+};

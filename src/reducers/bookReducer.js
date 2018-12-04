@@ -10,7 +10,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         books: action.payload
-      }
+      };
+    case DELETE_BOOK:
+      return {
+        ...state,
+        books: state.books.filter(book => book.book_id !== action.payload)
+      };
     default:
       return state;
   }

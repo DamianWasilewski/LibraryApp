@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 
+import { Provider } from 'react-redux';
+import store from '../../store';
+import { connect } from 'react-redux';
+import { deleteBook } from '../../actions/bookActions';
+import PropTypes from 'prop-types';
+
 import Book from '../../components/Book/Book';
 import './BookList.css';
 
@@ -32,6 +38,10 @@ class BookList extends Component {
     this.setState({selectedValue: e.target.value});
   }
 
+  deleteBookHandler = (id) => {
+    this.props.deleteBook(id);
+  }
+
   render () {
     let filteredBooks;
           if (this.state.selectedValue === 'name') {
@@ -49,6 +59,7 @@ class BookList extends Component {
           };
 
     return (
+    <Provider store={store}>
       <div>
         <div className='SearchInput'>
           <input type='text'
@@ -68,13 +79,28 @@ class BookList extends Component {
         <div className='BookList'>
           <ul>
             {filteredBooks.map(book => {
-              return <Book key={book.book_id} name={book.name} author={book.author} isbn={book.isbn} />
+              return <Book 
+              key={book.book_id} 
+              name={book.name} 
+              author={book.author} 
+              isbn={book.isbn}
+              onClick={this.deleteBookHandler.bind(this, book.book_id)} />
             })}
           </ul>
         </div>
-    </div>
+      </div>
+    </Provider>
     )
   }
 };
 
-export default BookList;
+BookList.propTypes = {
+  deleteBook: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
+}
+
+const mapStatetoProps = (state) => ({
+  book: state.book
+})
+
+export default connect(mapStatetoProps, {deleteBook })(BookList);
