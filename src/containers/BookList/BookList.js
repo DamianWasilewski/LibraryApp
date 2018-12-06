@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import { connect } from 'react-redux';
-import { deleteBook, getBooks } from '../../actions/bookActions';
+import { deleteBook } from '../../actions/bookActions';
 import PropTypes from 'prop-types';
 
 import Book from '../../components/Book/Book';
@@ -103,4 +103,4 @@ const mapStatetoProps = (state) => ({
   book: state.book
 })
 
-export default connect(mapStatetoProps, { deleteBook, getBooks })(BookList);
+export default connect(mapStatetoProps, { deleteBook })(BookList);

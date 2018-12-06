@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import BookList from '../BookList/BookList';
 import Form from '../../components/Form/Form';
 
-import { Provider } from 'react-redux';
-import store from '../../store';
+
 import { connect } from 'react-redux';
 import { getBooks } from '../../actions/bookActions';
 import PropTypes from 'prop-types';
@@ -11,6 +10,10 @@ import PropTypes from 'prop-types';
 import './AppContainer.css';
 
 class AppContainer extends Component {
+
+  componentDidMount () {
+    this.props.getBooks();
+  }
 
   render () {
     const { books } = this.props.book;

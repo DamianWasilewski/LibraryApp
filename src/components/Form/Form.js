@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { addBook, getBooks } from '../../actions/bookActions';
+import { addBook } from '../../actions/bookActions';
 
 import './Form.css';
 
@@ -11,10 +11,6 @@ class Form extends Component {
     name: '',
     author: '',
     isbn: ''
-  }
-
-  componentDidMount () {
-    this.props.getBooks();
   }
 
   onChangeHandler = (e) => {
@@ -37,7 +33,7 @@ class Form extends Component {
           author: '',
           isbn: ''
         })
-      e.preventDefault();
+    e.preventDefault();
   }
 
   render() {
@@ -82,4 +78,4 @@ const mapStateToProps = (state) => ({
   book: state.book
 });
 
-export default connect(mapStateToProps, { addBook, getBooks })(Form);
+export default connect(mapStateToProps, { addBook })(Form);
