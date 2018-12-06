@@ -4,10 +4,10 @@ import { GET_BOOKS, ADD_BOOK, DELETE_BOOK } from './types';
 
 export const getBooks = () => dispatch => {
   axios.get('https://damianlibrary.herokuapp.com/library')
-  .then(res => dispatch({
-    type: GET_BOOKS,
-    payload: res.data
-  }))
+    .then(res => dispatch({
+      type: GET_BOOKS,
+      payload: res.data
+    }))
 };
 
 export const deleteBook = id => dispatch => {
@@ -15,5 +15,13 @@ export const deleteBook = id => dispatch => {
     .then(res => dispatch({
       type: DELETE_BOOK,
       payload: id
+    }))
+};
+
+export const addBook = book => dispatch => {
+  axios.post('https://damianlibrary.herokuapp.com/library', book)
+    .then(res => dispatch({
+      type: ADD_BOOK,
+      payload: res.data
     }))
 };

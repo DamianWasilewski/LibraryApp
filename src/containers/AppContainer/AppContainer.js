@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BookList from '../BookList/BookList';
+import Form from '../../components/Form/Form';
 
 import { Provider } from 'react-redux';
 import store from '../../store';
@@ -11,19 +12,13 @@ import './AppContainer.css';
 
 class AppContainer extends Component {
 
-
-  componentDidMount() {
-    this.props.getBooks();
-  }
-
   render () {
     const { books } = this.props.book;
     return (
-      <Provider store = {store}>
         <div className='container'>
+          <Form />
           <BookList books={books}/>
         </div>
-      </Provider>
     )
   }
 }
