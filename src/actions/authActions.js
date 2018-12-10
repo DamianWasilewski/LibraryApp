@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import { LOGIN_USER, REGISTER_USER } from './types';
 
-export const loginUser = () => dispatch => {
-  axios.post('https://damianlibrary.herokuapp.com/users/login')
+export const loginUser = user => dispatch => {
+  axios.post('https://damianlibrary.herokuapp.com/users/login', user)
     .then(res => dispatch({
       type: LOGIN_USER,
-      payload: res.data
+      payload: localStorage.setItem('usertoken', res.data)
     }))
 }
 

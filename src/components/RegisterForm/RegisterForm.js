@@ -66,7 +66,7 @@ class RegisterForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.users
+  user: state.user
 });
 
 export default connect(mapStateToProps, { registerUser })(RegisterForm);

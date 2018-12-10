@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 import './AppContainer.css';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 class AppContainer extends Component {
 
@@ -20,6 +21,7 @@ class AppContainer extends Component {
     const { books } = this.props.book;
     return (
         <div className='container'>
+          <LoginForm />
           <RegisterForm />
           <Form />
           <BookList books={books}/>
