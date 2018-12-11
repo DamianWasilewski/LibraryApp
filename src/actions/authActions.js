@@ -14,6 +14,7 @@ export const registerUser = user => dispatch => {
   axios.post('https://damianlibrary.herokuapp.com/users/register', user)
     .then(res => dispatch({
       type: REGISTER_USER,
-      payload: res.data
+      payload: res.data,
+      status: res.data.status
     }))
 }

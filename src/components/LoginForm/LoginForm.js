@@ -66,7 +66,7 @@ class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.auth
 });
 
 export default connect(mapStateToProps, { loginUser })(LoginForm);

@@ -12,12 +12,12 @@ class RegisterForm extends Component {
     password: '',
   }
 
+
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   };
 
   onSubmitHandler = (e) => {
-
     const { user_name, password } = this.state
     
           const newUser = {
@@ -66,7 +66,7 @@ class RegisterForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.auth
 });
 
 export default connect(mapStateToProps, { registerUser })(RegisterForm);
