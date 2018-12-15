@@ -30,6 +30,7 @@ class LoginForm extends Component {
           user_name: '',
           password: ''
         })
+    this.props.history.push('/')
     e.preventDefault();
   }
 

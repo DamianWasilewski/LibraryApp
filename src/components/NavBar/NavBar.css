@@ -1,0 +1,30 @@
+.navbar {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  font-family: 'Merriweather', serif;
+}
+
+.navbar-navigation-dynamic {
+  display: flex;
+  align-content: space-between;
+}
+
+.navbar-navigation-item {
+  list-style-type: none;
+}
+
+.navbar a {
+  justify-content: flex-start;
+  align-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+  color: whitesmoke;
+  cursor: default;
+}

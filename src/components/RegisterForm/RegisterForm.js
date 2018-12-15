@@ -30,6 +30,7 @@ class RegisterForm extends Component {
           user_name: '',
           password: ''
         })
+    this.props.history.push('/login')
     e.preventDefault();
   }
 
