@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOGIN_USER, REGISTER_USER } from './types';
+import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from './types';
 
 export const loginUser = user => dispatch => {
   axios.post('https://damianlibrary.herokuapp.com/users/login', user)
@@ -17,4 +17,11 @@ export const registerUser = user => dispatch => {
       payload: res.data,
       status: res.data.status
     }))
+}
+
+export const logoutUser = () => dispatch => {
+  dispatch({
+    type: LOGOUT_USER,
+    payload: localStorage.removeItem('usertoken')
+  })
 }

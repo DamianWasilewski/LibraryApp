@@ -17,21 +17,20 @@ class LoginForm extends Component {
   };
 
   onSubmitHandler = (e) => {
-
+    e.preventDefault();
     const { user_name, password } = this.state
     
           const loggedUser = {
           user_name: user_name,
           password: password
         }
-        this.props.loginUser(loggedUser);
 
         this.setState({
           user_name: '',
           password: ''
         })
+    this.props.loginUser(loggedUser);
     this.props.history.push('/')
-    e.preventDefault();
   }
 
   render() {

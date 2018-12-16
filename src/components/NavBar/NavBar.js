@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser, logoutUser } from '../../actions/authActions';
+
 import { Link, withRouter } from 'react-router-dom';
 
 import './Navbar.css'
@@ -7,7 +10,7 @@ class Navbar extends Component {
 
   logOutHandler(e) {
     e.preventDefault()
-    localStorage.removeItem('usertoken')
+    this.props.logoutUser()
     this.props.history.push('/login')
   }
 
@@ -56,4 +59,8 @@ class Navbar extends Component {
   }
 }
 
-export default withRouter(Navbar)
+const mapStateToProps = (state) => ({
+  user: state.auth
+});
+
+export default connect(mapStateToProps, { loginUser, logoutUser })(withRouter(Navbar));
