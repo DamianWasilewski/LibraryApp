@@ -41,6 +41,7 @@ class Form extends Component {
 
     return (
       <div className='formContainer'>
+        <p>{this.book}</p>
         <div className='form'>
           <form className='bookForm' onSubmit={this.onSubmitHandler.bind(this)}>
             <div className='inputs'>

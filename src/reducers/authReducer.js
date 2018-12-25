@@ -2,7 +2,6 @@ import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from '../actions/types';
 
 const authState = {
   users: [],
-  status: '',
   token: null
 }
 
@@ -11,7 +10,7 @@ export default function(state = authState, action) {
     case LOGIN_USER:
       return {
         ...state,
-        token: action.payload
+        token: action.payload,
       };
     case REGISTER_USER:
       return {

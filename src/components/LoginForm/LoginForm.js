@@ -10,6 +10,8 @@ class LoginForm extends Component {
   state = {
     user_name: '',
     password: '',
+    validation: false,
+    errorMessage: ''
   }
 
   onChangeHandler = (e) => {
@@ -19,25 +21,42 @@ class LoginForm extends Component {
   onSubmitHandler = (e) => {
     e.preventDefault();
     const { user_name, password } = this.state
-    
-          const loggedUser = {
-          user_name: user_name,
-          password: password
-        }
 
-        this.setState({
-          user_name: '',
-          password: ''
+    if(user_name && password) {
+        this.setState({validation: true}, () => {
+          const loggedUser = {
+            user_name: user_name,
+            password: password
+          }
+
+          this.setState({
+            user_name: '',
+            password: '',
+          })
+          this.props.loginUser(loggedUser);
         })
-    this.props.loginUser(loggedUser);
-    this.props.history.push('/')
+    } else {
+      if (!user_name) {
+        this.setState({validation: false, errorMessage: 'Please enter your username'})
+      }
+      if (!password) {
+        this.setState({validation: false, errorMessage: 'Please enter your password'})
+      }
+    }
   }
 
   render() {
-    const { user_name, password } = this.state;
+    const token = localStorage.usertoken
+    if(token) {
+      this.props.history.push('/')
+    }
+    const { user_name, password, validation } = this.state;
 
     return (
       <div className='formContainer'>
+        {!validation && <div className="errorBox">
+          <p>{this.state.errorMessage}</p>
+        </div>}
         <div className='form'>
           <form className='bookForm' onSubmit={this.onSubmitHandler.bind(this)}>
             <div className='inputs'>
