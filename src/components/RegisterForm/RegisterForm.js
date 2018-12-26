@@ -16,13 +16,15 @@ class RegisterForm extends Component {
     errorMessage: ''
   }
 
-
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   };
 
   onSubmitHandler = (e) => {
+    e.preventDefault();
     const { user_name, password, first_name, last_name, email } = this.state
+
+    const response = this.props.user.response
     if(user_name && password && first_name && last_name && email) {
       if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
           const newUser = {
@@ -34,7 +36,7 @@ class RegisterForm extends Component {
         }
 
         this.props.registerUser(newUser);
-
+          
         this.setState({
           user_name: '',
           password: '',
@@ -43,27 +45,29 @@ class RegisterForm extends Component {
           email: '',
           errorMessage: ''
         })
-
-      this.props.history.push('/login')
     } else {
       this.setState({ errorMessage: 'Please enter correct email adress' })
     }
   } else { 
     this.setState({ errorMessage: 'Please fill in all fields' })
   }
-  e.preventDefault();
 }
 
   render() {
     const { user_name, password, first_name, last_name, email } = this.state;
+
+    const response = this.props.user
 
     return (
       <div className='formContainer'>
         <div className='errorBox'>
           <p>{this.state.errorMessage}</p>
         </div>
+        {response.error && <div className='errorBox'>
+        <p>{response.error}</p>
+        </div>}
         <div className='form'>
-          <form className='bookForm' onSubmit={this.onSubmitHandler.bind(this)}>
+          <form className='bookForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>
               <input 
               type='text' 
@@ -108,7 +112,7 @@ class RegisterForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth
+  user: state.auth.response
 });
 
 export default connect(mapStateToProps, { registerUser })(RegisterForm);

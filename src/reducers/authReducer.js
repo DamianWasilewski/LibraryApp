@@ -1,8 +1,9 @@
 import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from '../actions/types';
 
-const authState = {
+let authState = {
   users: [],
-  token: null
+  token: null,
+  response: ''
 }
 
 export default function(state = authState, action) {
@@ -14,9 +15,8 @@ export default function(state = authState, action) {
       };
     case REGISTER_USER:
       return {
-        ...state,
-        users: [action.payload, ...state.users], 
-        status: action.status
+        ...state, 
+        response: action.payload
       };
     case LOGOUT_USER:
       return {
