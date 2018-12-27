@@ -4,6 +4,7 @@ import Form from '../../components/Form/Form';
 
 import { connect } from 'react-redux';
 import { getBooks } from '../../actions/bookActions';
+import { loginUser } from '../../actions/authActions';
 import PropTypes from 'prop-types';
 
 import './AppContainer.css';
@@ -16,9 +17,12 @@ class AppContainer extends Component {
 
   render () {
     const { books } = this.props.book;
+
+    const token = localStorage.usertoken
+
     return (
         <div className='container'>
-          <Form />
+          {token && <Form />}
           <BookList books={books}/>
         </div>
     )
@@ -31,7 +35,8 @@ AppContainer.propTypes = {
 }
 
 const mapStatetoProps = (state) => ({
-  book: state.book
+  book: state.book,
+  user: state.auth
 });
 
-export default connect(mapStatetoProps, { getBooks })(AppContainer);
+export default connect(mapStatetoProps, { getBooks, loginUser })(AppContainer);

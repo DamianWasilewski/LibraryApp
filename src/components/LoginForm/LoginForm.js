@@ -49,8 +49,6 @@ class LoginForm extends Component {
     const token = localStorage.usertoken
     if(token) {
       this.props.history.push('/')
-    } else {
-      console.log(this.props.user)
     }
     const { user_name, password, validation } = this.state;
 

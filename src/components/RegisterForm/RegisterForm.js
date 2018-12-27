@@ -24,7 +24,7 @@ class RegisterForm extends Component {
     e.preventDefault();
     const { user_name, password, first_name, last_name, email } = this.state
 
-    const response = this.props.user.response
+    
     if(user_name && password && first_name && last_name && email) {
       if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
           const newUser = {
@@ -65,6 +65,9 @@ class RegisterForm extends Component {
         </div>
         {response.error && <div className='errorBox'>
         <p>{response.error}</p>
+        </div>}
+        {response.status && <div className='errorBox'>
+        <p>{response.status}</p>
         </div>}
         <div className='form'>
           <form className='bookForm' onSubmit={this.onSubmitHandler}>

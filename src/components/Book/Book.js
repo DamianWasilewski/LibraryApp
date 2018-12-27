@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authActions';
+
 
 import './Book.css';
 
-const book = (props) => (
-  <div className='Book'>
-    <div className='Name'>{props.name}</div>
-    <div className='Author'>{props.author}</div>
-    <div className='Isbn'>{props.isbn}</div>
-    <button onClick={props.onClick}>Delete</button>
-  </div>
-);
+class Book extends Component {
+  render() {
 
-export default book;
+    const { name, author, isbn, onClick } = this.props
+
+    const token = localStorage.usertoken
+
+    return  (
+    <div className='Book'>
+      <div className='Name'>{name}</div>
+      <div className='Author'>{author}</div>
+      <div className='Isbn'>{isbn}</div>
+      {token && <button 
+      onClick={onClick}>Delete</button>}
+    </div>  
+    )
+  }
+};
+
+const mapStatetoProps = (state) => ({
+  user: state.auth
+})
+
+export default connect(mapStatetoProps, { loginUser })(Book);
