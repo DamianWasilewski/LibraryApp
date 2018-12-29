@@ -3,8 +3,13 @@
   padding: 0;
 }
 
+main {
+  margin-top: 3.3rem;
+}
+
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-header {
