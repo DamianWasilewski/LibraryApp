@@ -44,7 +44,7 @@ class Form extends Component {
         <p>{this.book}</p>
         <div className='form'>
           <form className='bookForm' onSubmit={this.onSubmitHandler.bind(this)}>
-            <div className='inputs'>
+            <div className='bookForm__inputs'>
               <input 
               type='text' 
               name='name'  
@@ -64,7 +64,7 @@ class Form extends Component {
               onChange={this.onChangeHandler}
               value={isbn}/>
             </div>
-            <div className='buttonSpace'>
+            <div className='bookForm__buttonSpace'>
               <button>Add book</button>
             </div>
           </form>

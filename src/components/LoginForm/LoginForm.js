@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+
 import './LoginForm.css';
 
 class LoginForm extends Component {
@@ -46,6 +50,9 @@ class LoginForm extends Component {
   }
 
   render() {
+    //Adding icon from FontAwesome library
+    library.add(faSignInAlt);
+    //Declaring token as variable
     const token = localStorage.usertoken
     if(token) {
       this.props.history.push('/')
@@ -74,7 +81,7 @@ class LoginForm extends Component {
               value={password}/>
             </div>
             <div className='buttonSpace'>
-              <button>Login</button>
+              <button><FontAwesomeIcon icon="sign-in-alt" /></button>
             </div>
           </form>
         </div>

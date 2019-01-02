@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+
 import './RegisterForm.css';
 
 class RegisterForm extends Component {
@@ -54,6 +58,8 @@ class RegisterForm extends Component {
 }
 
   render() {
+    //Adding icon from FontAwesome library
+    library.add(faUserPlus);
     const { user_name, password, first_name, last_name, email } = this.state;
 
     const response = this.props.user
@@ -104,7 +110,7 @@ class RegisterForm extends Component {
               value={email}/>            
             </div>
             <div className='buttonSpace'>
-              <button>Register</button>
+              <button><FontAwesomeIcon icon="user-plus" /></button>
             </div>
           </form>
         </div>
