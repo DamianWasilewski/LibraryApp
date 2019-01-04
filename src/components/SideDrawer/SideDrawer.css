@@ -16,7 +16,7 @@
   transform: translateX(0);
 }
 
-.side-drawer ul {
+.sideDrawer__navigation {
   height: 100%;
   list-style: none;
   display: flex;
@@ -24,11 +24,21 @@
   justify-content: center;
 }
 
-.side-drawer li {
+.sideDrawer__navigation-list-item {
   margin: 0.5rem 0;
 }
 
-.side-drawer a {
+.sideDrawer__navigation-home-item {
+  margin-bottom: 0.5rem;
+}
+
+.sideDrawer__navigation-home-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sideDrawer__navigation-list-item a {
   color: white;
   text-decoration: none;
   font-size: 1rem;

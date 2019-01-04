@@ -1,4 +1,9 @@
 .Book {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  color: whitesmoke;
+  border: 1px solid rgb(27, 115, 174);
+  background: rgba(27, 115, 174, 0.9);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -7,12 +12,5 @@
 .Book > div {
   text-align: center;
   flex-basis: 29%;
-}
-
-.Book :first-child {
-  text-align: left;
-}
-
-.Book :last-child {
-  text-align: right;
+  padding: 0.5rem 0;
 }

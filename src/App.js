@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './store';
 
 import SideDrawer from './components/SideDrawer/SideDrawer';
+import Footer from './components/Footer/Footer';
 import Backdrop from './components/Backdrop/Backdrop';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -50,6 +51,7 @@ class App extends Component {
                 <Route exact path='/register' component={RegisterForm} />
               </div>
             </main>
+            <Footer />
           </div>
         </Router>
       </Provider>

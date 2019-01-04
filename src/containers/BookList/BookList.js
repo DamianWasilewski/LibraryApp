@@ -43,7 +43,7 @@ class BookList extends Component {
   }
 
   render () {
-    
+    const token = localStorage.usertoken
 
     let filteredBooks;
           if (this.state.selectedValue === 'name') {
@@ -79,6 +79,12 @@ class BookList extends Component {
           </select>
         </div>
         <div className='BookList'>
+            <div className='BookList-info'>
+            <div className='Name'>Author</div>
+            <div className='Author'>Title</div>
+            <div className='Isbn'>ISBN</div>
+            {token && <div className='action'>Action</div>}
+        </div>
           <ul>
             {filteredBooks.map(book => {
               return <Book 

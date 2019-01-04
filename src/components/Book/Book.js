@@ -8,14 +8,14 @@ import './Book.css';
 class Book extends Component {
   render() {
 
-    const { name, author, isbn, onClick } = this.props
+    const { author, name, isbn, onClick } = this.props
 
     const token = localStorage.usertoken
 
     return  (
     <div className='Book'>
-      <div className='Name'>{name}</div>
-      <div className='Author'>{author}</div>
+      <div className='Name'>{author}</div>
+      <div className='Author'>{name}</div>
       <div className='Isbn'>{isbn}</div>
       {token && <button 
       onClick={onClick}>Delete</button>}

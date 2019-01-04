@@ -21,28 +21,28 @@ class SideDrawer extends Component {
     }
 
     const loginRegistrationLink = (
-      <ul className='navbar-navigation-dynamic'>
-        <li className='navbar-navigation-item'>
-          <Link to='/login' className='navbar-navigation-link'>
+      <ul className='sideDrawer__navigation-list'>
+        <li className='sideDrawer__navigation-list-item'>
+          <Link to='/login' className='sideDrawer__navigation-link'>
             Login
           </Link>
         </li>
-        <li className='navbar-navigation-item'>
-          <Link to='/register' className='navbar-navigation-link'>
+        <li className='sideDrawer__navigation-list-item'>
+          <Link to='/register' className='sideDrawer__navigation-link'>
             Register
           </Link>
         </li>
       </ul>
     )
     const profileLink = (
-      <ul className='navbar-navigation-dynamic'>
-        <li className='navbar-navigation-item'>
-          <Link to='/profile' className='navbar-navigation-link'>
+      <ul className='sideDrawer__navigation-list'>
+        <li className='sideDrawer__navigation-list-item'>
+          <Link to='/profile' className='sideDrawer__navigation-link'>
             Account
           </Link>
         </li>
-        <li className='navbar-navigation-item'>
-          <a href='#' onClick={this.logOutHandler.bind(this)} className='navbar-navigation-link'>
+        <li className='sideDrawer__navigation-list-item'>
+          <a href='#' onClick={this.logOutHandler.bind(this)} className='sideDrawer__navigation-link'>
             Logout
           </a>
         </li>
@@ -51,8 +51,15 @@ class SideDrawer extends Component {
 
     return (
       
-        <nav className={drawerClasses}>     
+        <nav className={drawerClasses}>
+          <div className="sideDrawer__navigation">
+            <div className='sideDrawer__navigation-home-item'>
+              <Link to='/' className='sideDrawer__navigation-link'>
+              Home
+              </Link>
+            </div>     
             {localStorage.usertoken ? profileLink : loginRegistrationLink}
+          </div>
         </nav>
     )
   }
