@@ -1,7 +1,3 @@
-.container {
-  width: 40%;
-}
-
 .BookList-info {
   margin-top: 1rem;
   border-radius: 1rem;
@@ -19,8 +15,35 @@
 
 .BookList-info > div {
   text-align: center;
-  flex-basis: 29%;
+  flex-basis: 24%;
   font-weight: 500;
+}
+
+.SearchInput {
+  margin: 4rem auto 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.SearchInput input {
+  margin: 0 0.25rem;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid rgb(27, 115, 174);
+  background: transparent;
+  color: black;
+  font-size: 1rem;
+  outline: none;
+}
+
+.SearchInput select {
+  border: none;
+  border-bottom: 1px solid rgb(27, 115, 174);
+  margin-left: 0.5rem;
+  color: gray;
+  font-size: 1rem;
 }
 
 

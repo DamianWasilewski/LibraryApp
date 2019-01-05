@@ -11,6 +11,19 @@
 
 .Book > div {
   text-align: center;
-  flex-basis: 29%;
+  flex-basis: 24%;
   padding: 0.5rem 0;
+}
+
+.Book-button button {
+  color: whitesmoke;
+  border: 0px;
+  background: none;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.Book-button button:hover {
+  color: rgb(35, 137, 23);
 }

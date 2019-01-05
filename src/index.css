@@ -1,3 +1,7 @@
+::placeholder {
+  color: gray;
+}
+
 html {
   height: 100%;
 }

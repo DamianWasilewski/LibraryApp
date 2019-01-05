@@ -13,11 +13,11 @@ class BookList extends Component {
 
   state = {
     search: '',
-    selectedValue: 'name',
+    selectedValue: 'title',
     options: [
       {
-        name: 'Name',
-        value: 'name',
+        name: 'Title',
+        value: 'title',
       },
       {
         name: 'Author',
@@ -46,7 +46,7 @@ class BookList extends Component {
     const token = localStorage.usertoken
 
     let filteredBooks;
-          if (this.state.selectedValue === 'name') {
+          if (this.state.selectedValue === 'title') {
             filteredBooks = this.props.books.filter(book => {
               return book.name.toLowerCase().indexOf(this.state.search) !== -1;
             })
@@ -65,6 +65,7 @@ class BookList extends Component {
       <div>
         <div className='SearchInput'>
           <input type='text'
+          placeholder='Search for'
           value={this.state.search}
           onChange={this.updateSearch.bind(this)} />
           <select
@@ -79,12 +80,12 @@ class BookList extends Component {
           </select>
         </div>
         <div className='BookList'>
-            <div className='BookList-info'>
-            <div className='Name'>Author</div>
-            <div className='Author'>Title</div>
+          <div className='BookList-info'>
+            <div className='Author'>Author</div>
+            <div className='Title'>Title</div>
             <div className='Isbn'>ISBN</div>
             {token && <div className='action'>Action</div>}
-        </div>
+          </div>
           <ul>
             {filteredBooks.map(book => {
               return <Book 

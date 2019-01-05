@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addBook } from '../../actions/bookActions';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+
 import './Form.css';
 
 class Form extends Component {
@@ -37,13 +41,17 @@ class Form extends Component {
   }
 
   render() {
+
+    //Adding icon from FontAwesome library
+    library.add(faPlusSquare);
+
     const { name, author, isbn } = this.state;
 
     return (
       <div className='formContainer'>
         <p>{this.book}</p>
-        <div className='form'>
-          <form className='bookForm' onSubmit={this.onSubmitHandler.bind(this)}>
+        <div className='bookForm'>
+          <form className='bookForm__form' onSubmit={this.onSubmitHandler.bind(this)}>
             <div className='bookForm__inputs'>
               <input 
               type='text' 
@@ -65,7 +73,7 @@ class Form extends Component {
               value={isbn}/>
             </div>
             <div className='bookForm__buttonSpace'>
-              <button>Add book</button>
+              <button><FontAwesomeIcon icon="plus-square" /></button>
             </div>
           </form>
         </div>
