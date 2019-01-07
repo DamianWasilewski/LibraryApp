@@ -14,12 +14,15 @@ class LoginForm extends Component {
   state = {
     user_name: '',
     password: '',
-    validation: false,
+    validation: true,
     errorMessage: ''
   }
 
   onChangeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+    e.preventDefault();
+    const { name, value } = e.target;
+
+    this.setState({ [name]: value })
   };
 
   onSubmitHandler = (e) => {
@@ -61,11 +64,9 @@ class LoginForm extends Component {
 
     return (
       <div className='formContainer'>
-        {!validation && <div className="errorBox">
-          <p>{this.state.errorMessage}</p>
-        </div>}
+        {!validation && <div className='errorBox'>Please fill in all fields</div>}
         <div className='form'>
-          <form className='bookForm' onSubmit={this.onSubmitHandler.bind(this)}>
+          <form className='bookForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>
               <input 
               type='text' 
