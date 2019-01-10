@@ -130,71 +130,81 @@ class RegisterForm extends Component {
     return (
       <div className='formContainer'>
         {response.error && <div className='errorBox'>
-        <p>{response.error}</p>
+        {response.error}
         </div>}
         {response.status && <div className='errorBox'>
-        <p>{response.status}</p>
+        {response.status}
         </div>}
         <div className='form'>
-          <form className='bookForm' onSubmit={this.onSubmitHandler}>
-            <div className='inputs'>
-              <input 
-              type='text' 
-              className={errorMessages.first_name.length > 0 ? 'error' : null}
-              name='user_name'  
-              placeholder='Username'
-              onChange={this.onChangeHandler}
-              noValidate
-              value={user_name}/>
-              {errorMessages.user_name.length > 0 && (
-                <span className='errorMessage'>{errorMessages.user_name}</span>
-              )}
-              <input 
-              type='password'
-              className={errorMessages.first_name.length > 0 ? 'error' : null} 
-              name='password'  
-              placeholder='Password'
-              onChange={this.onChangeHandler}
-              noValidate
-              value={password}/>
-              {errorMessages.password.length > 0 && (
-                <span className='errorMessage'>{errorMessages.password}</span>
-              )}
-              <input 
-              type='text'
-              className={errorMessages.first_name.length > 0 ? 'error' : null} 
-              name='first_name'  
-              placeholder='First name'
-              onChange={this.onChangeHandler}
-              noValidate
-              value={first_name}/>
-              {errorMessages.first_name.length > 0 && (
-                <span className='errorMessage'>{errorMessages.first_name}</span>
-              )}
-              <input 
-              type='text'
-              className={errorMessages.first_name.length > 0 ? 'error' : null} 
-              name='last_name'  
-              placeholder='Last Name'
-              onChange={this.onChangeHandler}
-              noValidate
-              value={last_name}/>
-              {errorMessages.last_name.length > 0 && (
-                <span className='errorMessage'>{errorMessages.last_name}</span>
-              )}
-              <input 
-              type='text'
-              className={errorMessages.first_name.length > 0 ? 'error' : null}
-              name='email'  
-              placeholder='Email'
-              onChange={this.onChangeHandler}
-              noValidate
-              value={email}/> 
-              {errorMessages.email.length > 0 && (
-                <span className='errorMessage'>{errorMessages.email}</span>
-              )}           
+          <form className='registerForm' onSubmit={this.onSubmitHandler}>
+            <div className='registerForm__inputs'>
+              <div className="registerForm__inputs-item">
+                <input 
+                type='text' 
+                className={errorMessages.first_name.length > 0 ? 'error' : null}
+                name='user_name'  
+                placeholder='Username'
+                onChange={this.onChangeHandler}
+                noValidate
+                value={user_name}/>
+                {errorMessages.user_name.length > 0 && (
+                  <span className='registerForm__inputs-item-errorMsg'>{errorMessages.user_name}</span>
+                )}
+              </div>
+              <div className="registerForm__inputs-item">
+                <input 
+                type='password'
+                className={errorMessages.first_name.length > 0 ? 'error' : null} 
+                name='password'  
+                placeholder='Password'
+                onChange={this.onChangeHandler}
+                noValidate
+                value={password}/>
+                {errorMessages.password.length > 0 && (
+                  <span className='registerForm__inputs-item-errorMsg'>{errorMessages.password}</span>
+                )}
+              </div>
+              <div className="registerForm__inputs-item">
+                <input 
+                type='text'
+                className={errorMessages.first_name.length > 0 ? 'error' : null} 
+                name='first_name'  
+                placeholder='First name'
+                onChange={this.onChangeHandler}
+                noValidate
+                value={first_name}/>
+                {errorMessages.first_name.length > 0 && (
+                  <span className='registerForm__inputs-item-errorMsg'>{errorMessages.first_name}</span>
+                )}
+              </div>
+              <div className="registerForm__inputs-item">
+                <input 
+                type='text'
+                className={errorMessages.first_name.length > 0 ? 'error' : null} 
+                name='last_name'  
+                placeholder='Last Name'
+                onChange={this.onChangeHandler}
+                noValidate
+                value={last_name}/>
+                {errorMessages.last_name.length > 0 && (
+                  <span className='registerForm__inputs-item-errorMsg'>{errorMessages.last_name}</span>
+                )}
+              </div>
+              <div className="registerForm__inputs-item">
+                <input 
+                type='text'
+                className={errorMessages.first_name.length > 0 ? 'error' : null}
+                name='email'  
+                placeholder='Email'
+                onChange={this.onChangeHandler}
+                noValidate
+                value={email}/> 
+                {errorMessages.email.length > 0 && (
+                  <span className='registerForm__inputs-item-errorMsg'>{errorMessages.email}</span>
+                )}
+              </div>          
             </div>
-            <div className='buttonSpace'>
+            <div className='registerForm__buttonSpace'>
               <button><FontAwesomeIcon icon="user-plus" /></button>
             </div>
           </form>
