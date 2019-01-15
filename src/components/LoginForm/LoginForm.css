@@ -59,3 +59,7 @@
 .buttonSpace button:hover {
   color: #243b55;
 }
+
+@media (min-width: 769px) {
+
+}

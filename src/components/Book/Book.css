@@ -10,6 +10,9 @@
 }
 
 .Book > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   flex-basis: 24%;
   padding: 0.5rem 0;
@@ -26,4 +29,8 @@
 
 .Book-button button:hover {
   color: rgb(35, 137, 23);
+}
+
+@media (min-width: 769px) {
+  
 }

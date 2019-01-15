@@ -6,7 +6,7 @@ export const loginUser = user => dispatch => {
   axios.post('https://damianlibrary.herokuapp.com/users/login', user)
     .then(res => dispatch({
       type: LOGIN_USER,
-      payload: localStorage.setItem('usertoken', res.data),
+      payload: localStorage.setItem('usertoken', res.data)
     }))
 }
 

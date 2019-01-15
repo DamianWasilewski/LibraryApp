@@ -11,7 +11,7 @@ export default function(state = authState, action) {
     case LOGIN_USER:
       return {
         ...state,
-        token: action.payload,
+        token: action.payload
       };
     case REGISTER_USER:
       return {

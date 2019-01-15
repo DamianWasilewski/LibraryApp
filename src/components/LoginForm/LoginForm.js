@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 import './LoginForm.css';
+import { error, isError } from 'util';
 
 class LoginForm extends Component {
   
@@ -53,6 +54,7 @@ class LoginForm extends Component {
   }
 
   render() {
+    console.log(this.props.user)
     //Adding icon from FontAwesome library
     library.add(faSignInAlt);
     //Declaring token as variable
@@ -60,11 +62,10 @@ class LoginForm extends Component {
     if(token) {
       this.props.history.push('/')
     }
-    const { user_name, password, validation } = this.state;
-
+    const { user_name, password, validation, errorMessage } = this.state;
     return (
       <div className='formContainer'>
-        {!validation && <div className='errorBox'>Please fill in all fields</div>}
+        {!validation && <div className='errorBox'>{errorMessage}</div>}
         <div className='form'>
           <form className='bookForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>

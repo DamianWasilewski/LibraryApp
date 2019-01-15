@@ -111,51 +111,51 @@ class Form extends Component {
     const { name, author, isbn, errorMessages } = this.state;
 
     return (
-      <div className='formContainer'>
-        {errorMessages.ifInputsFilled && <div className='errorBox'>{errorMessages.ifInputsFilled}</div>}
-        <div className='bookForm'>
-          <form className='bookForm__form' onSubmit={this.onSubmitHandler.bind(this)}>
-            <div className='bookForm__inputs'>
-              <div className="bookForm__inputs-item">
-                <input 
-                type='text' 
-                name='title'  
-                placeholder='Book name'
-                onChange={this.onChangeHandler}
-                value={name}/>
-                {errorMessages.title.length > 0 && (
-                  <span className='errorMessage'>{errorMessages.title}</span>
-                )}
+      <div className='bookForm_container'>
+          {errorMessages.ifInputsFilled && <div className='errorBox'>{errorMessages.ifInputsFilled}</div>}
+            <form className='bookForm__form' onSubmit={this.onSubmitHandler.bind(this)}>
+              <div className='bookForm'>
+                <div className='bookForm__inputs'>
+                  <div className="bookForm__inputs-item">
+                    <input 
+                    type='text' 
+                    name='title'  
+                    placeholder='Book name'
+                    onChange={this.onChangeHandler}
+                    value={name}/>
+                    {errorMessages.title.length > 0 && (
+                      <span className='errorMessage'>{errorMessages.title}</span>
+                    )}
+                  </div>
+                  <div className="bookForm__inputs-item">
+                    <input 
+                    type='text' 
+                    name='author'  
+                    placeholder='Book author'
+                    onChange={this.onChangeHandler}
+                    value={author}/>
+                    {errorMessages.author.length > 0 && (
+                      <span className='errorMessage'>{errorMessages.author}</span>
+                    )}
+                  </div>
+                  <div className="bookForm__inputs-item">
+                    <input 
+                    type='text' 
+                    name='isbn'  
+                    placeholder='ISBN'
+                    onChange={this.onChangeHandler}
+                    value={isbn}/>
+                    {errorMessages.isbn.length > 0 && (
+                      <span className='errorMessage'>{errorMessages.isbn}</span>
+                    )}
+                  </div>
+                </div>
+                <div className='bookForm__buttonSpace'>
+                  <button><FontAwesomeIcon icon="plus-square" /></button>
+                </div>
               </div>
-              <div className="bookForm__inputs-item">
-                <input 
-                type='text' 
-                name='author'  
-                placeholder='Book author'
-                onChange={this.onChangeHandler}
-                value={author}/>
-                {errorMessages.author.length > 0 && (
-                  <span className='errorMessage'>{errorMessages.author}</span>
-                )}
-              </div>
-              <div className="bookForm__inputs-item">
-                <input 
-                type='text' 
-                name='isbn'  
-                placeholder='ISBN'
-                onChange={this.onChangeHandler}
-                value={isbn}/>
-                {errorMessages.isbn.length > 0 && (
-                  <span className='errorMessage'>{errorMessages.isbn}</span>
-                )}
-              </div>
-            </div>
-            <div className='bookForm__buttonSpace'>
-              <button><FontAwesomeIcon icon="plus-square" /></button>
-            </div>
-          </form>
-        </div>
-      </div>
+            </form>
+          </div>
     )
   }
 

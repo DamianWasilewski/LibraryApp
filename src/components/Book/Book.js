@@ -21,11 +21,11 @@ class Book extends Component {
 
     return  (
     <div className='Book'>
-      <div className='Name'>{author}</div>
-      <div className='Author'>{name}</div>
-      <div className='Isbn'>{isbn}</div>
+      <div className='Author'><span>{author}</span></div>
+      <div className='Title'><span>{name}</span></div>
+      <div className='Isbn'><span>{isbn}</span></div>
       {token && <div className='Book-button'><button 
-      onClick={onClick}><FontAwesomeIcon icon="trash-alt" /></button></div>}
+      onClick={onClick}><span><FontAwesomeIcon icon="trash-alt" /></span></button></div>}
     </div>  
     )
   }

@@ -1,4 +1,16 @@
 .container {
-  width: 40%;
-  margin: auto;
+  width: 90%;
+  margin: 4rem auto 0 auto;
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 40%;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 45%;
+  }
 }
