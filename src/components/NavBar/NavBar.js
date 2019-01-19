@@ -36,7 +36,7 @@ class Navbar extends Component {
       <ul className='navbar-navigation-dynamic'>
         <li className='navbar-navigation-item'>
           <Link to='/profile' className='navbar-navigation-link'>
-            Account
+            Profile
           </Link>
         </li>
         <li className='navbar-navigation-item'>

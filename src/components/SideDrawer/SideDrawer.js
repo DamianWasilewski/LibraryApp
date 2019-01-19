@@ -38,7 +38,7 @@ class SideDrawer extends Component {
       <ul className='sideDrawer__navigation-list'>
         <li className='sideDrawer__navigation-list-item'>
           <Link to='/profile' className='sideDrawer__navigation-link'>
-            Account
+            Profile
           </Link>
         </li>
         <li className='sideDrawer__navigation-list-item'>

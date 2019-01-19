@@ -9,6 +9,7 @@ import Backdrop from './components/Backdrop/Backdrop';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import Navbar from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile';
 import AppContainer from './containers/AppContainer/AppContainer';
 
 import './App.css';
@@ -47,6 +48,7 @@ class App extends Component {
             <main>
               <Route exact path='/' component={AppContainer} />
               <div className='container'>
+                <Route exact path='/profile' component={Profile} />
                 <Route exact path='/login' component={LoginForm} />
                 <Route exact path='/register' component={RegisterForm} />
               </div>

@@ -1,0 +1,27 @@
+.profile {
+  display: flex;
+  flex-flow: column wrap;
+  color: whitesmoke;
+  border-radius: 1rem;
+  border: 1px solid rgb(27, 115, 174);
+  background: rgb(27, 115, 174);
+  width: 100%;
+}
+
+.title {
+  flex-basis: 100%;
+  margin-bottom: 1rem;
+}
+
+.profile__items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 1rem 0 1rem 0;
+  font-size: 0.9rem;
+}
+
+.profile__items-item {
+  flex-basis: 50%;
+  margin-top: 0.5rem;
+}
