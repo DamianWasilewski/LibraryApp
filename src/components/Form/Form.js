@@ -113,6 +113,7 @@ class Form extends Component {
     return (
       <div className='bookForm_container'>
           {errorMessages.ifInputsFilled && <div className='errorBox'>{errorMessages.ifInputsFilled}</div>}
+          <div className="toggleButton"><button ><FontAwesomeIcon icon="plus-square" /></button></div>
             <form className='bookForm__form' onSubmit={this.onSubmitHandler.bind(this)}>
               <div className='bookForm'>
                 <div className='bookForm__inputs'>

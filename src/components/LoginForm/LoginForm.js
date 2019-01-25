@@ -67,7 +67,7 @@ class LoginForm extends Component {
       <div className='formContainer'>
         {!validation && <div className='errorBox'>{errorMessage}</div>}
         <div className='form'>
-          <form className='bookForm' onSubmit={this.onSubmitHandler}>
+          <form className='bookLoginForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>
               <input 
               type='text' 

@@ -2,12 +2,25 @@
   margin: auto;
 }
 
+.toggleButton button {
+    background: none;
+    cursor: pointer;
+    border: 0px;
+    color: rgb(27, 115, 174);
+    font-size: 1.5rem;
+    transition: 0.5s;
+    vertical-align: middle;
+}
+
 .bookForm {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
   margin: 0 auto 1rem auto;
+  border: 1px solid rgb(27, 115, 174);
+  border-radius: 10px;
+  max-width: 65%;
 }
 
 .bookForm__form {
@@ -19,6 +32,7 @@
   display: flex;
   flex-flow: row wrap;
   flex-basis: 55%;
+  padding: 0.5rem 0;
 }
 
 .bookForm__inputs-item {
@@ -48,6 +62,7 @@
 .bookForm__buttonSpace {
   display: flex;
   height: 3rem;
+  padding-left: 0.7rem;
 }
 
 .bookForm__buttonSpace button {
@@ -55,7 +70,7 @@
   cursor: pointer;
   border: 0px;
   color: rgb(27, 115, 174);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   transition: 0.5s;
   vertical-align: middle;
 }
@@ -65,22 +80,16 @@
 }
 
 @media (min-width: 769px) {
-  .bookForm__inputs {
-    display: flex;
-    flex-flow: row;
-    flex-basis: 80%;
+  .bookForm {
+    max-width: 35%;
   }
-
+  .bookForm__inputs {
+    flex-basis: 45%;
+  }
   .bookForm__inputs input {
     font-size: 1rem;
   }
-
   .bookForm__buttonSpace {
-    display: flex;
-    margin-bottom: 1rem;
-  }
-
-  .bookForm__buttonSpace button {
-    font-size: 1.5rem;
+    padding-left: 1rem;
   }
 }
