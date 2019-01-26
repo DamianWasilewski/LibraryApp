@@ -18,7 +18,7 @@
   border-bottom: 2px solid rgb(27, 115, 174);
   background: transparent;
   color: black;
-  font-size: 1rem;
+  font-size: 0.7rem;
   padding: 0.5rem;
   outline: none;
 }
@@ -50,5 +50,7 @@
 }
 
 @media (min-width: 769px) {
-  
+  .registerForm__inputs input {
+    font-size: 1rem;
+  }
 }

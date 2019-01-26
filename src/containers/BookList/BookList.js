@@ -17,7 +17,7 @@ class BookList extends Component {
     options: [
       {
         name: 'Title',
-        value: 'title',
+        value: 'name',
       },
       {
         name: 'Author',

@@ -2,14 +2,28 @@
   margin: auto;
 }
 
-.toggleButton button {
-    background: none;
-    cursor: pointer;
-    border: 0px;
-    color: rgb(27, 115, 174);
-    font-size: 1.5rem;
-    transition: 0.5s;
-    vertical-align: middle;
+.toggle-button {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0 auto;
+}
+
+.toggle-button button {
+  background: none;
+  cursor: pointer;
+  border: 0px;
+  color: rgb(27, 115, 174);
+  font-size: 3rem;
+  transition: 0.5s;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+  margin: auto;
+}
+
+.toggle-button.closed {
+  display: none;
 }
 
 .bookForm {
@@ -20,12 +34,19 @@
   margin: 0 auto 1rem auto;
   border: 1px solid rgb(27, 115, 174);
   border-radius: 10px;
-  max-width: 65%;
+  max-width: 75%;
+  position: relative;
+}
+
+.bookForm__form.open {
+  transform: translateY(0);
 }
 
 .bookForm__form {
   display: flex;
   align-items: center;
+  transform: translateY(-160%);
+  transition: transform 0.3s ease-out;
 }
 
 .bookForm__inputs {
@@ -59,13 +80,13 @@
   color: red;
 }
 
-.bookForm__buttonSpace {
+.bookForm__submitButtonSpace {
   display: flex;
   height: 3rem;
   padding-left: 0.7rem;
 }
 
-.bookForm__buttonSpace button {
+.bookForm__submitButtonSpace button {
   background: none;
   cursor: pointer;
   border: 0px;
@@ -75,7 +96,20 @@
   vertical-align: middle;
 }
 
-.bookForm__buttonSpace button:hover {
+.bookForm__formTogglerButtonSpace button {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  background: none;
+  cursor: pointer;
+  border: 0px;
+  color: red;
+  font-size: 1.25rem;
+  transition: 0.5s;
+  vertical-align: middle;
+}
+
+.bookForm__submitButtonSpace button:hover {
   color: #243b55;
 }
 
@@ -89,7 +123,7 @@
   .bookForm__inputs input {
     font-size: 1rem;
   }
-  .bookForm__buttonSpace {
+  .bookForm__submitButtonSpace {
     padding-left: 1rem;
   }
 }

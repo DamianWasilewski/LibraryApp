@@ -5,18 +5,20 @@ import { addBook } from '../../actions/bookActions';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import './Form.css';
 
 class Form extends Component {
   
   state = {
-    title: '',
+    name: '',
     author: '',
     isbn: '',
+    showButton: true,
+    showForm: false,
     errorMessages: {
-      title: '',
+      name: '',
       author: '',
       isbn: '',
       ifInputsFilled: ''
@@ -33,6 +35,19 @@ class Form extends Component {
     return valid;
   }; 
 
+  toggleButtonClickHandler = () => {
+    this.setState((prevState) => {
+      return {showButton: !prevState.showButton, showForm: !prevState.showForm}
+    })
+  }
+
+  toggleFormButtonClickHandler = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => {
+      return {showButton: !prevState.showButton, showForm: !prevState.showForm}
+    })
+  }
+
   onChangeHandler = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -40,8 +55,8 @@ class Form extends Component {
     const isbnRegex = RegExp(/^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/g)
 
     switch(name) {
-      case 'title':
-        errorMessages.title = 
+      case 'name':
+        errorMessages.name = 
           value.length < 3 && value.length > 0
           ? 'minimum 3 characters required'
           : '';
@@ -69,23 +84,23 @@ class Form extends Component {
   onSubmitHandler = (e) => {
     e.preventDefault();
 
-    const {title, author, isbn, errorMessages} = this.state
+    const {name, author, isbn, errorMessages} = this.state
     if(this.formValid(errorMessages)) {
-      if(title && author && isbn) {
+      if(name && author && isbn) {
 
         const newBook = {
-          title: title,
+          name: name,
           author: author,
           isbn: isbn
         }
         this.props.addBook(newBook);
 
         this.setState({
-          title: '',
+          name: '',
           author: '',
           isbn: '',
           errorMessages: {
-            title: '',
+            name: '',
             author: '',
             isbn: '',
             ifInputsFilled: ''
@@ -105,27 +120,41 @@ class Form extends Component {
 
   render() {
 
+    let formClasses = 'bookForm__form',
+        toggleButtonClasses = 'toggle-button';
+
+    if(this.state.showForm) {
+      formClasses = 'bookForm__form open';
+    }
+    if(!this.state.showButton) {
+      toggleButtonClasses = 'toggle-button closed';
+    }
+
     //Adding icon from FontAwesome library
-    library.add(faPlusSquare);
+    library.add(faPlusSquare, faTimes);
 
     const { name, author, isbn, errorMessages } = this.state;
 
     return (
       <div className='bookForm_container'>
           {errorMessages.ifInputsFilled && <div className='errorBox'>{errorMessages.ifInputsFilled}</div>}
-          <div className="toggleButton"><button ><FontAwesomeIcon icon="plus-square" /></button></div>
-            <form className='bookForm__form' onSubmit={this.onSubmitHandler.bind(this)}>
+          <div className={toggleButtonClasses}>
+            <button onClick={this.toggleButtonClickHandler.bind(this)}>
+            <FontAwesomeIcon icon="plus-square" />
+            </button>
+          </div>
+            <form className={formClasses} onSubmit={this.onSubmitHandler.bind(this)}>
               <div className='bookForm'>
                 <div className='bookForm__inputs'>
                   <div className="bookForm__inputs-item">
                     <input 
                     type='text' 
-                    name='title'  
+                    name='name'  
                     placeholder='Book name'
                     onChange={this.onChangeHandler}
                     value={name}/>
-                    {errorMessages.title.length > 0 && (
-                      <span className='errorMessage'>{errorMessages.title}</span>
+                    {errorMessages.name.length > 0 && (
+                      <span className='errorMessage'>{errorMessages.name}</span>
                     )}
                   </div>
                   <div className="bookForm__inputs-item">
@@ -151,8 +180,14 @@ class Form extends Component {
                     )}
                   </div>
                 </div>
-                <div className='bookForm__buttonSpace'>
+                <div className='bookForm__submitButtonSpace'>
                   <button><FontAwesomeIcon icon="plus-square" /></button>
+                </div>
+                <div className="bookForm__formTogglerButtonSpace">
+                  <button
+                  onClick={this.toggleFormButtonClickHandler.bind(this)}>
+                  <FontAwesomeIcon icon="times" />
+                  </button> 
                 </div>
               </div>
             </form>
