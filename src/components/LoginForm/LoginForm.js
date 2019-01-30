@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 import './LoginForm.css';
-import { error, isError } from 'util';
 
 class LoginForm extends Component {
   
@@ -25,6 +24,16 @@ class LoginForm extends Component {
 
     this.setState({ [name]: value })
   };
+
+  errorMsg() {
+    if(this.props.errorMsg) {
+      return (
+        <div className="info-red">
+          {this.props.errorMsg}
+        </div>
+      );
+    }
+  }
 
   onSubmitHandler = (e) => {
     e.preventDefault();
@@ -54,17 +63,13 @@ class LoginForm extends Component {
   }
 
   render() {
-    console.log(this.props.user)
     //Adding icon from FontAwesome library
     library.add(faSignInAlt);
-    //Declaring token as variable
-    const token = localStorage.usertoken
-    if(token) {
-      this.props.history.push('/')
-    }
+
     const { user_name, password, validation, errorMessage } = this.state;
     return (
       <div className='formContainer'>
+        {this.errorMsg()}
         {!validation && <div className='errorBox'>{errorMessage}</div>}
         <div className='form'>
           <form className='bookLoginForm' onSubmit={this.onSubmitHandler}>
@@ -94,7 +99,8 @@ class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth
+  user: state.auth,
+  errorMsg: state.auth.error
 });
 
 export default connect(mapStateToProps, { loginUser })(LoginForm);

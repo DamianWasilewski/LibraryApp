@@ -1,13 +1,20 @@
 import axios from 'axios';
 
-import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from './types';
+import { REGISTER_USER,  AUTHENTICATED, AUTHENTICATION_ERROR, UNAUTHENTICATED } from './types';
 
-export const loginUser = user => dispatch => {
-  axios.post('https://damianlibrary.herokuapp.com/users/login', user)
-    .then(res => dispatch({
-      type: LOGIN_USER,
-      payload: localStorage.setItem('usertoken', res.data)
-    }))
+export function loginUser(user) {
+  return (dispatch) => {
+      axios.post('https://damianlibrary.herokuapp.com/users/login',  user )
+      .then(res => dispatch({ 
+        type: AUTHENTICATED,
+        payload: localStorage.setItem('usertoken', res.data.token)}))
+      .catch(error => {
+        dispatch({
+          type: AUTHENTICATION_ERROR,
+          payload: 'Invalid username or password'
+        })
+      })
+  };
 }
 
 export const registerUser = user => dispatch => {
@@ -19,8 +26,8 @@ export const registerUser = user => dispatch => {
 }
 
 export const logoutUser = () => dispatch => {
+  localStorage.clear();
   dispatch({
-    type: LOGOUT_USER,
-    payload: localStorage.removeItem('usertoken')
-  })
+    type: UNAUTHENTICATED
+  });
 }

@@ -1,28 +1,31 @@
-import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from '../actions/types';
+import { REGISTER_USER, AUTHENTICATED, UNAUTHENTICATED, AUTHENTICATION_ERROR } from '../actions/types';
 
 let authState = {
-  users: [],
-  token: null,
   response: ''
 }
 
 export default function(state = authState, action) {
   switch(action.type) {
-    case LOGIN_USER:
+    case AUTHENTICATED:
       return {
         ...state,
-        token: action.payload
+        authenticated: true
+      };
+    case UNAUTHENTICATED:
+      return {
+        ...state,
+        authenticated: false
+    };
+    case AUTHENTICATION_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
     case REGISTER_USER:
       return {
         ...state, 
         response: action.payload
       };
-    case LOGOUT_USER:
-      return {
-        ...state,
-        token: action.payload
-      }
     default:
       return state;
   }

@@ -60,7 +60,7 @@ class Navbar extends Component {
           </div>
           <div className='distance' />
           <div className='navbar__navigation-items'>
-            {localStorage.usertoken ? profileLink : loginRegistrationLink}
+            {this.props.authenticated ? profileLink : loginRegistrationLink}
           </div>
         </nav>
       </header>
@@ -69,7 +69,8 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth
+  user: state.auth,
+  authenticated: state.auth.authenticated
 });
 
 export default connect(mapStateToProps, { loginUser, logoutUser })(withRouter(Navbar));
