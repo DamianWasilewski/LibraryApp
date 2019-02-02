@@ -33,14 +33,28 @@ class LoginForm extends Component {
   };
 
   errorMsg() {
-    if(this.props.errorMsg) {
+      if(this.props.errorMsg) {
+        return (
+          <div className="info-red">
+            {this.props.errorMsg}
+          </div>
+        );
+      }
+      return null;
+  }
+
+  errorMesssage() {
+    const { validation, errorMessage } = this.state;
+
+    if(!validation) {
       return (
         <div className="info-red">
-          {this.props.errorMsg}
+          {errorMessage}
         </div>
       );
     }
-  }
+    return null;
+}
 
   onSubmitHandler = (e) => {
     e.preventDefault();
@@ -77,7 +91,7 @@ class LoginForm extends Component {
     return (
       <div className='formContainer'>
         {this.errorMsg()}
-        {!validation && <div className='errorBox'>{errorMessage}</div>}
+        {this.errorMesssage()}
         <div className='form'>
           <form className='bookLoginForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>
