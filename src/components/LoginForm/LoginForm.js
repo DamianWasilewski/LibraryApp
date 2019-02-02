@@ -18,6 +18,13 @@ class LoginForm extends Component {
     errorMessage: ''
   }
 
+  componentWillUpdate() {
+    const token = localStorage.getItem('usertoken');
+    if(token) {
+      this.props.history.push('/')
+    }
+  }
+
   onChangeHandler = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -50,7 +57,7 @@ class LoginForm extends Component {
             user_name: '',
             password: '',
           })
-          this.props.loginUser(loggedUser);
+          this.props.loginUser(loggedUser, this.props.history);
         })
     } else {
       if (!user_name) {
@@ -100,7 +107,8 @@ class LoginForm extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.auth,
-  errorMsg: state.auth.error
+  errorMsg: state.auth.error,
+  authenticated: state.authenticated
 });
 
 export default connect(mapStateToProps, { loginUser })(LoginForm);
