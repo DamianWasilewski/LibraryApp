@@ -86,6 +86,12 @@
   align-items: center;
 }
 
+.errorBox {
+  font-size: 0.7rem;
+  color: red;
+  padding: 0.5rem;
+}
+
 .bookForm__submitButtonSpace {
   display: flex;
   height: 3rem;

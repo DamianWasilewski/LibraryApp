@@ -137,7 +137,7 @@ class Form extends Component {
 
     return (
       <div className='bookForm_container'>
-          {errorMessages.ifInputsFilled && <div className='errorBox'>{errorMessages.ifInputsFilled}</div>}
+          {errorMessages.ifInputsFilled && <div className='errorMessage'>{errorMessages.ifInputsFilled}</div>}
           <div className={toggleButtonClasses}>
             <button onClick={this.toggleButtonClickHandler.bind(this)}>
             <FontAwesomeIcon icon="plus-square" />
@@ -154,7 +154,7 @@ class Form extends Component {
                     onChange={this.onChangeHandler}
                     value={name}/>
                     {errorMessages.name.length > 0 && (
-                      <span className='errorMessage'>{errorMessages.name}</span>
+                      <span className='errorBox'>{errorMessages.name}</span>
                     )}
                   </div>
                   <div className="bookForm__inputs-item">
@@ -165,7 +165,7 @@ class Form extends Component {
                     onChange={this.onChangeHandler}
                     value={author}/>
                     {errorMessages.author.length > 0 && (
-                      <span className='errorMessage'>{errorMessages.author}</span>
+                      <span className='errorBox'>{errorMessages.author}</span>
                     )}
                   </div>
                   <div className="bookForm__inputs-item">
@@ -176,7 +176,7 @@ class Form extends Component {
                     onChange={this.onChangeHandler}
                     value={isbn}/>
                     {errorMessages.isbn.length > 0 && (
-                      <span className='errorMessage'>{errorMessages.isbn}</span>
+                      <span className='errorBox'>{errorMessages.isbn}</span>
                     )}
                   </div>
                 </div>
