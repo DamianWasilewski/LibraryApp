@@ -13,7 +13,7 @@ class BookList extends Component {
 
   state = {
     search: '',
-    selectedValue: 'title',
+    selectedValue: 'name',
     options: [
       {
         name: 'Title',
@@ -46,7 +46,7 @@ class BookList extends Component {
     const token = localStorage.usertoken
 
     let filteredBooks;
-          if (this.state.selectedValue === 'title') {
+          if (this.state.selectedValue === 'name') {
             filteredBooks = this.props.books.filter(book => {
               return book.name.toLowerCase().indexOf(this.state.search) !== -1;
             })
