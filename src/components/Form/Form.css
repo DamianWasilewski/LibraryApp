@@ -75,9 +75,15 @@
 }
 
 .errorMessage {
-  padding-top: 0.5rem;
-  font-size: 0.7rem;
-  color: red;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: whitesmoke;
+  background: rgb(232, 59, 44, 0.7);
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bookForm__submitButtonSpace {
@@ -125,5 +131,8 @@
   }
   .bookForm__submitButtonSpace {
     padding-left: 1rem;
+  }
+  .errorMessage {
+    padding: 1rem;
   }
 }

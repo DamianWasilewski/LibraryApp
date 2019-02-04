@@ -35,8 +35,8 @@ class LoginForm extends Component {
   errorMsg() {
       if(this.props.errorMsg) {
         return (
-          <div className="info-red">
-            {this.props.errorMsg}
+          <div className="errorMessage">
+            <span>{this.props.errorMsg}</span>
           </div>
         );
       }
@@ -48,8 +48,8 @@ class LoginForm extends Component {
 
     if(!validation) {
       return (
-        <div className="info-red">
-          {errorMessage}
+        <div className="errorMessage">
+          <span>{errorMessage}</span>
         </div>
       );
     }
@@ -90,9 +90,10 @@ class LoginForm extends Component {
     const { user_name, password, validation, errorMessage } = this.state;
     return (
       <div className='formContainer'>
+        <span className='formContainer__header'><p>Login existing user</p></span>
         {this.errorMsg()}
         {this.errorMesssage()}
-        <div className='form'>
+        <div className='loginForm'>
           <form className='bookLoginForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>
               <input 

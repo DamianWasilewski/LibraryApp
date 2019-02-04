@@ -13,10 +13,10 @@
 
 .footer__Content-text {
   margin: auto;
+  font-size: 0.75rem;
 }
 
 .footer__Content-socialMedia {
-  margin: 0.5rem 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -24,11 +24,34 @@
 
 .footer__Content-socialMedia a {
   color: whitesmoke;
-  flex-basis: 1.5%;
-  font-size: 1.3rem;
+  flex-basis: 4%;
+  font-size: 1rem;
   transition: 0.5s;
 }
 
 .footer__Content-socialMedia a:hover {
   color: rgb(35, 137, 23);
+}
+
+@media (min-width: 813px) {
+  .footer__Content-text {
+    margin: auto;
+    font-size: 1rem;
+  }
+  
+  .footer__Content-socialMedia {
+    margin: 0.5rem 0;
+  }
+
+  .footer__Content-socialMedia a {
+    font-size: 1.3rem;
+    flex-basis: 1.5%;
+  }
+}
+
+@media (max-width: 812px) and (orientation: portrait) {
+  .footer__Content-socialMedia a {
+    font-size: 1.3rem;
+    flex-basis: 7%;
+  }
 }

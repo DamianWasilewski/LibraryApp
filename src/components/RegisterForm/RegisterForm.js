@@ -129,13 +129,16 @@ class RegisterForm extends Component {
 
     return (
       <div className='formContainer'>
-        {response.error && <div className='errorBox'>
-        {response.error}
+        {response.error && 
+        <div className='errorMessage'>
+          {response.error}
         </div>}
-        {response.status && <div className='errorBox'>
-        {response.status}
+        {response.status && 
+        <div className='errorMessage'>
+          {response.status}
         </div>}
         <div className='form'>
+          <span className='form__header'><p>Register new user</p></span>
           <form className='registerForm' onSubmit={this.onSubmitHandler}>
             <div className='registerForm__inputs'>
               <div className="registerForm__inputs-item">
