@@ -90,10 +90,10 @@ class LoginForm extends Component {
     const { user_name, password, validation, errorMessage } = this.state;
     return (
       <div className='formContainer'>
-        <span className='formContainer__header'><p>Login existing user</p></span>
         {this.errorMsg()}
         {this.errorMesssage()}
         <div className='loginForm'>
+        <span className='loginForm__header'><p>Login existing user</p></span>
           <form className='bookLoginForm' onSubmit={this.onSubmitHandler}>
             <div className='inputs'>
               <input 

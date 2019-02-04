@@ -4,10 +4,12 @@
   height: 100%;
 }
 
-.formContainer__header {
+.loginForm__header {
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(27, 115, 174);
+  flex-basis: 100%;
+  margin-bottom: 0.75rem;
 }
 
 .loginForm {
