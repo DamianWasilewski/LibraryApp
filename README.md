@@ -1,3 +1,26 @@
+<b>Library App</b>
+
+Library management system using React + Redux for frontend. Backend was written by myself in Node.js + Express. For communication between frontend and backed axios was used.
+<br>
+<br>
+Live preview of application: https://damianwasilewski.github.io/LibraryApp/#/
+<br>
+Link to backend app: https://github.com/DamianWasilewski/LibraryApi
+<br>
+
+<b>Features:</b>
+<ul>
+  <li>Registration</li>
+  <li>Login</li>
+  <li>Searching books according to: title, author, ISBN</li>
+  <li>Adding new books (after successfull login)</li>
+  <li>Deleting existing books (after successfull login)</li>
+  <li>Account information (after successfull login)</li>
+</ul>
+<br>
+While logging in, you are receiving jwt token, which next is saved in browser LocalStorage. 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
