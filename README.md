@@ -18,9 +18,9 @@ Link to backend app: https://github.com/DamianWasilewski/LibraryApi
   <li>Account information (after successfull login)</li>
 </ul>
 <br>
-While logging in, you are receiving jwt token, which next is saved in browser LocalStorage.<br><br>
-
-
+While logging in, you are receiving jwt token, which next is saved in browser LocalStorage.
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
